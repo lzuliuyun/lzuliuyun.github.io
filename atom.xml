@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lzuliuyun.com/"/>
-  <updated>2018-01-20T09:12:44.879Z</updated>
+  <updated>2018-04-11T16:11:26.026Z</updated>
   <id>http://lzuliuyun.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MongoDB安装与连接</title>
+    <link href="http://lzuliuyun.com/2018/04/11/MongoDB%E5%AE%89%E8%A3%85%E4%B8%8E%E8%BF%9E%E6%8E%A5/"/>
+    <id>http://lzuliuyun.com/2018/04/11/MongoDB安装与连接/</id>
+    <published>2018-04-11T13:51:54.000Z</published>
+    <updated>2018-04-11T16:11:26.026Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>首先去<a href="https://www.mongodb.com/download-center?jmp=tutorials#community" title="mongodb官网" target="_blank" rel="noopener">Mongodb官网</a> 下载社区版本。当时没注意选择第二个Communtiy Server，真的是为自己的智商捉急。中间点击下载时，半天没反映，能否下载看人品了。<br><img src="/images/bddd8797-36d6-446b-9301-5ef38110888a.png" alt=""></p><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>下载之后，直接双击安装即可。其中，安装选项为Custom，左下角的compass不勾选。其余的默认就好。</p><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>在bin同级目录依次创建\data\db文件夹，执行下面的命令初始化<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"C:\Program Files\MongoDB\Server\3.6\bin\mongod.exe"</span> --dbpath <span class="string">"C:\Program Files\MongoDB\Server\3.6\data\db"</span></span><br></pre></td></tr></table></figure></p><h3 id="启动-可能不需要启动，初始化步骤就已经提示OK"><a href="#启动-可能不需要启动，初始化步骤就已经提示OK" class="headerlink" title="启动(可能不需要启动，初始化步骤就已经提示OK)"></a>启动(可能不需要启动，初始化步骤就已经提示OK)</h3><p>执行以下命令开始启动<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"C:\Program Files\MongoDB\Server\3.6\bin\mongod.exe"</span></span><br></pre></td></tr></table></figure></p><p>出现如下提示，说明启动OK<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[initandlisten] waiting <span class="keyword">for</span> connections on port <span class="number">27017</span></span><br></pre></td></tr></table></figure></p><h3 id="安装MongoDB服务"><a href="#安装MongoDB服务" class="headerlink" title="安装MongoDB服务"></a>安装MongoDB服务</h3><h4 id="创建配置文件"><a href="#创建配置文件" class="headerlink" title="创建配置文件"></a>创建配置文件</h4><p>在bin同级目录，创建mongod.cfg配置文件。由于执行了启动的步骤，因此在c盘也初始化了data以及log文件，<code>如果启动步骤不执行，相应的配置文件路径也需要同步修改</code>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">systemLog:</span><br><span class="line">    destination: file</span><br><span class="line">    path: c:\data\log\mongod.log</span><br><span class="line">storage:</span><br><span class="line">    dbPath: c:\data\db</span><br></pre></td></tr></table></figure></p><h4 id="安装服务"><a href="#安装服务" class="headerlink" title="安装服务"></a>安装服务</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"C:\Program Files\MongoDB\Server\3.6\bin\mongod.exe"</span> --config <span class="string">"C:\Program Files\MongoDB\Server\3.6\mongod.cfg"</span> --install</span><br></pre></td></tr></table></figure><h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start MongoDB</span><br></pre></td></tr></table></figure><h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><ol><li><p>通过进入bin目录，执行mongo观察是否安装成功<br><img src="/images/b6dc407a-a04f-40f6-aeb1-97464818ef64.png" alt=""></p></li><li><p>通过GUI工具连接观察是否安装成功<br><img src="/images/8b934b29-71f3-46de-b649-917b9fdd64a3.png" alt=""><br><img src="/images/491d8c95-3c38-46ad-957b-f4e3b5444518.png" alt=""></p></li></ol><h3 id="停止服务"><a href="#停止服务" class="headerlink" title="停止服务"></a>停止服务</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net stop MongoDB</span><br></pre></td></tr></table></figure><h3 id="FQA"><a href="#FQA" class="headerlink" title="FQA"></a>FQA</h3><ol><li><strong>官方安装帮助文档</strong> <a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/" target="_blank" rel="noopener">https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/</a></li><li><strong> 安装过程出现Windows不能在本地计算机启动MongoDB，服务错误代码 100问题 </strong> <a href="https://blog.csdn.net/qq_30100043/article/details/77940573" target="_blank" rel="noopener">https://blog.csdn.net/qq_30100043/article/details/77940573</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;下载&quot;&gt;&lt;a href=&quot;#下载&quot; class=&quot;headerlink&quot; title=&quot;下载&quot;&gt;&lt;/a&gt;下载&lt;/h3&gt;&lt;p&gt;首先去&lt;a href=&quot;https://www.mongodb.com/download-center?jmp=tutorials#comm
+      
+    
+    </summary>
+    
+      <category term="30-mongodb" scheme="http://lzuliuyun.com/categories/30-mongodb/"/>
+    
+    
+      <category term="mongodb" scheme="http://lzuliuyun.com/tags/mongodb/"/>
+    
+      <category term="数据库" scheme="http://lzuliuyun.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>Less 学习</title>
@@ -48,7 +75,7 @@
     <link href="http://lzuliuyun.com/2016/09/25/%E4%B8%BA%E7%9F%A5%E7%AC%94%E8%AE%B0--%E5%AF%BC%E5%87%BAMarkDown%E6%96%87%E4%BB%B6%E6%8F%92%E4%BB%B6/"/>
     <id>http://lzuliuyun.com/2016/09/25/为知笔记--导出MarkDown文件插件/</id>
     <published>2016-09-25T12:49:02.000Z</published>
-    <updated>2018-01-20T09:19:34.839Z</updated>
+    <updated>2018-04-11T14:40:14.484Z</updated>
     
     <content type="html"><![CDATA[<p>GitHub 地址<a href="https://github.com/lzuliuyun/ExportToMd" target="_blank" rel="noopener">https://github.com/lzuliuyun/ExportToMd</a></p><p>为知笔记导出MarkDown插件，只支持MarkDown格式文档导出。</p><a id="more"></a><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>1.克隆项目到本地<br>2.复制ExportToMd文件夹到数据<code>存储目录</code>下的Plugins目录中</p><p><img src="/images/afc9fcec-4ca7-4913-8cd9-180d8a3f838b.png" alt=""></p><p><img src="/images/3f17a9ea-472a-4e5c-899f-3922030c8cd1.png" alt=""></p><p>3.配置导出的markdown文件和图片目录路径参数<br><img src="/images/4e8292e4-634e-47f9-8799-6f65ca12c3ae.png" alt=""><br>4.重新启动程序<br>5.导出文档</p><p><img src="/images/936218e6-be30-4371-82f9-5d614e07785d.png" alt=""></p><h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><p>2017-03-19 更新支持为知笔记4.5以上版本</p>]]></content>
     
@@ -61,6 +88,10 @@
     
       <category term="10-Tool" scheme="http://lzuliuyun.com/categories/10-Tool/"/>
     
+    
+      <category term="markdown" scheme="http://lzuliuyun.com/tags/markdown/"/>
+    
+      <category term="为知笔记" scheme="http://lzuliuyun.com/tags/%E4%B8%BA%E7%9F%A5%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
