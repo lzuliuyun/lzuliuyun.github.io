@@ -63,9 +63,9 @@
     
       <category term="nodejs" scheme="http://lzuliuyun.com/tags/nodejs/"/>
     
-      <category term="图片" scheme="http://lzuliuyun.com/tags/%E5%9B%BE%E7%89%87/"/>
-    
       <category term="裁剪" scheme="http://lzuliuyun.com/tags/%E8%A3%81%E5%89%AA/"/>
+    
+      <category term="图片" scheme="http://lzuliuyun.com/tags/%E5%9B%BE%E7%89%87/"/>
     
   </entry>
   
@@ -119,9 +119,9 @@
     
       <category term="css" scheme="http://lzuliuyun.com/tags/css/"/>
     
-      <category term="水平居中" scheme="http://lzuliuyun.com/tags/%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD/"/>
-    
       <category term="图片" scheme="http://lzuliuyun.com/tags/%E5%9B%BE%E7%89%87/"/>
+    
+      <category term="水平居中" scheme="http://lzuliuyun.com/tags/%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD/"/>
     
   </entry>
   
@@ -303,6 +303,32 @@
     
     
       <category term="nodejs" scheme="http://lzuliuyun.com/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NPM发布模块.md</title>
+    <link href="http://lzuliuyun.com/2018/04/15/NPM%E5%8F%91%E5%B8%83%E6%A8%A1%E5%9D%97/"/>
+    <id>http://lzuliuyun.com/2018/04/15/NPM发布模块/</id>
+    <published>2018-04-15T14:42:56.000Z</published>
+    <updated>2018-07-10T10:14:13.279Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先假设你已经有了自己的一个npm模块，相关的功能都已经准备好，只待发布。</p><h3 id="添加用户并登陆npm"><a href="#添加用户并登陆npm" class="headerlink" title="添加用户并登陆npm"></a>添加用户并登陆npm</h3><p>如果你是第一次发布包，则需要首先在官网注册一个npm账号，地址：<a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a> ，<br>然后在终端输入<code>npm adduser</code>根据提示输入账号密码以及邮箱进行登陆。</p><p>需要注意的是，如果你使用了淘宝源，此时你可能需要vpn，使用npm的源。设置步骤是进入<code>C:\Users\user\.npmrc</code>目录，注释掉淘宝源设置，然后开启vpn。<br><img src="http://p66xl7flj.bkt.clouddn.com/images/9ed15303-963d-45dc-a9c1-a401faaabc3f.png?imageView2/0/q/75|watermark/1/image/aHR0cDovL3A2NnhsN2Zsai5ia3QuY2xvdWRkbi5jb20vbG9nby5wbmc=/dissolve/62/gravity/SouthEast/dx/20/dy/10|imageslim" alt=""></p><p>如果你不是第一次登陆，那么需要执行命令<code>npm login</code>输入账号密码登陆<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PS E:\01 Personal Doc\10 Blog\01 hexo-blog-plugins\hexo-image-cdn&gt; npm login</span><br><span class="line">Username: lzuliuyun</span><br><span class="line">Password:</span><br><span class="line">Email: (this IS public) lzuliuyun@gmail.com</span><br><span class="line">Logged in as lzuliuyun on https://registry.npmjs.org/.</span><br></pre></td></tr></table></figure></p><h3 id="生成版本号并提交到git"><a href="#生成版本号并提交到git" class="headerlink" title="生成版本号并提交到git"></a>生成版本号并提交到git</h3><p>执行命令<code>git version &lt;update_type&gt;</code>自动改变版本, 其中update_type为patch, minor或者 major其中之一，分别表示补丁，小改，大改。</p><p>生成版本号之后，提交推送代码到github。</p><h3 id="‪npm模块发布"><a href="#‪npm模块发布" class="headerlink" title="‪npm模块发布"></a>‪npm模块发布</h3><p>最后执行命令<code>npm publish</code>发布模块</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">PS E:\01 Personal Doc\10 Blog\01 hexo-blog-plugins\hexo-image-cdn&gt; npm publish</span><br><span class="line">npm notice</span><br><span class="line">npm notice package: hexo-image-cdn@0.2.0</span><br><span class="line">npm notice === Tarball Contents ===</span><br><span class="line">npm notice 692B   package.json</span><br><span class="line">npm notice 1.0kB  index.js</span><br><span class="line">npm notice 1.1kB  LICENSE</span><br><span class="line">npm notice 2.2kB  README.md</span><br><span class="line">npm notice 44.6kB images/desc1.png</span><br><span class="line">npm notice 58.1kB images/eaf62561-250b-4219-a11c-c3cf8b0eb11b.png</span><br><span class="line">npm notice 3.5kB  lib/deployer.js</span><br><span class="line">npm notice === Tarball Details ===</span><br><span class="line">npm notice name:          hexo-image-cdn</span><br><span class="line">npm notice version:       0.2.0</span><br><span class="line">npm notice package size:  102.3 kB</span><br><span class="line">npm notice unpacked size: 111.2 kB</span><br><span class="line">npm notice shasum:        fee5202128f62018081d4043366d8fd8f09267f0</span><br><span class="line">npm notice integrity:     sha512-ZdM/9j00XDN6q[...]RqYwbrqLKtkEQ==</span><br><span class="line">npm notice total files:   7</span><br><span class="line">npm notice</span><br></pre></td></tr></table></figure><h3 id="修改源为淘宝"><a href="#修改源为淘宝" class="headerlink" title="修改源为淘宝"></a>修改源为淘宝</h3><p>最后修改node配置文件的源为淘宝，并注释掉registry.npmjs.org,下次发布npm包时，则仍需要重新登陆。</p><h3 id="QA"><a href="#QA" class="headerlink" title="QA"></a>QA</h3><p>Q: <img src="http://p66xl7flj.bkt.clouddn.com/images/d35b6e44-5b9f-4e40-b533-5367bba637e4.png?imageView2/0/q/75|watermark/1/image/aHR0cDovL3A2NnhsN2Zsai5ia3QuY2xvdWRkbi5jb20vbG9nby5wbmc=/dissolve/62/gravity/SouthEast/dx/20/dy/10|imageslim" alt=""><br>A：该问题是因为没有npm login，重新登陆即可</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;首先假设你已经有了自己的一个npm模块，相关的功能都已经准备好，只待发布。&lt;/p&gt;
+&lt;h3 id=&quot;添加用户并登陆npm&quot;&gt;&lt;a href=&quot;#添加用户并登陆npm&quot; class=&quot;headerlink&quot; title=&quot;添加用户并登陆npm&quot;&gt;&lt;/a&gt;添加用户并登陆npm&lt;
+      
+    
+    </summary>
+    
+      <category term="08-tool" scheme="http://lzuliuyun.com/categories/08-tool/"/>
+    
+    
+      <category term="npm" scheme="http://lzuliuyun.com/tags/npm/"/>
     
   </entry>
   
