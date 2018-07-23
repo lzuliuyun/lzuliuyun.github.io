@@ -37,9 +37,9 @@
       <category term="02-js" scheme="http://lzuliuyun.com/categories/02-js/"/>
     
     
-      <category term="图片" scheme="http://lzuliuyun.com/tags/%E5%9B%BE%E7%89%87/"/>
-    
       <category term="上传" scheme="http://lzuliuyun.com/tags/%E4%B8%8A%E4%BC%A0/"/>
+    
+      <category term="图片" scheme="http://lzuliuyun.com/tags/%E5%9B%BE%E7%89%87/"/>
     
   </entry>
   
@@ -67,9 +67,9 @@
     
       <category term="nodejs" scheme="http://lzuliuyun.com/tags/nodejs/"/>
     
-      <category term="裁剪" scheme="http://lzuliuyun.com/tags/%E8%A3%81%E5%89%AA/"/>
-    
       <category term="图片" scheme="http://lzuliuyun.com/tags/%E5%9B%BE%E7%89%87/"/>
+    
+      <category term="裁剪" scheme="http://lzuliuyun.com/tags/%E8%A3%81%E5%89%AA/"/>
     
   </entry>
   
@@ -414,11 +414,11 @@
       <category term="08-tool" scheme="http://lzuliuyun.com/categories/08-tool/"/>
     
     
+      <category term="hexo" scheme="http://lzuliuyun.com/tags/hexo/"/>
+    
       <category term="markdown" scheme="http://lzuliuyun.com/tags/markdown/"/>
     
       <category term="为知笔记" scheme="http://lzuliuyun.com/tags/%E4%B8%BA%E7%9F%A5%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="hexo" scheme="http://lzuliuyun.com/tags/hexo/"/>
     
   </entry>
   
